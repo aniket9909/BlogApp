@@ -1,0 +1,48 @@
+<%- include ("partials/header.ejs") %>
+    <!-- <h1>this is index page</h1> -->
+    <div class="ui main text container">
+        <div class="ui huge header">
+            Blog App
+        </div>
+        <div class="ui top attached segment">
+            <div class="ui devided items">
+                <% blog.forEach(function(blog){ %>
+                    <div class="item">
+                        <div>
+                        </div>
+                        <div class="image">
+                            <img src="<%= blog.image %>" alt="" srcset="">
+                        </div>
+                        <div class="content">
+                            <a class="header" href="/blogs/<%= blog._id%>">
+                                <%= blog.name %>
+                            </a>
+                            <div class="meta">
+                                <span>
+                                    <%= blog.create.toDateString() %>
+                                </span>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    <%- blog.body.substring(0,100) %>.....
+                                </p>
+                            </div>
+                            <div class="extras">
+                                <a class="ui red basic button" href="/blogs/<%= blog._id%>">Read More<i
+                                        class="right chevron icon"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+
+
+
+    <%- include ("partials/footer.ejs") %>
+
+        <%= blog.name %>
+            <%= blog.image %>
+                <%= blog.create %>
